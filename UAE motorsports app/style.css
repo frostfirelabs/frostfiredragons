@@ -1,0 +1,439 @@
+/* --- Font Imports (from Frostfire Labs theme) --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Chakra+Petch:wght@400;700&display=swap');
+
+/* Assuming Warpen font is available locally if desired, otherwise it will fall back */
+@font-face {
+    font-family: 'Warpen';
+    src: url('./fonts/Warpen.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- Color Variables & Global Settings (from Frostfire Labs theme) --- */
+:root {
+    /* Frostfire Colors */
+    --color-frost-light: #C0EEF2; /* Light icy blue */
+    --color-frost-medium: #7ED9E8; /* Medium icy blue */
+    --color-frost-dark: #37AECB;  /* Darker deep blue */
+
+    --color-fire-light: #FFD180; /* Light fiery orange/gold */
+    --color-fire-medium: #FF8C00; /* Medium orange */
+    --color-fire-dark: #E63946;   /* Deep fiery red */
+
+    /* Neutrals */
+    --color-background-dark: #1A1A2E; /* Deep dark blue/purple */
+    --color-background-light: #2E2E4A; /* Slightly lighter background */
+    --color-text-light: #E0E0E0; /* Off-white for readability */
+    --color-text-dark: #B0B0B0;   /* Darker gray for subtle text */
+    --color-border-accent: #3A3A5E; /* Subtle border color */
+    --color-warning: #FF4D4D; /* A vibrant red for warnings */
+
+    font-size: 16px; /* Base font size for 'rem' calculations */
+}
+
+/* Universal box-sizing for easier layout calculations */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Chakra Petch', sans-serif; /* Primary body font from Frostfire */
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    margin: 0;
+    padding: 1.5rem; /* Responsive padding */
+    line-height: 1.6;
+    text-align: center; /* Center content horizontally */
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Ensure all images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevents extra space below images */
+    border-radius: 0.5rem; /* Rounded corners for images */
+    margin: 0 auto 1rem auto; /* Center images and add bottom margin */
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); /* Subtle shadow for images */
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--color-background-light); /* From Frostfire theme */
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-border-accent); /* From Frostfire theme */
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif; /* From Frostfire theme */
+    font-size: 3em;
+    color: var(--color-frost-medium); /* From Frostfire theme */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 1rem rgba(126, 217, 232, 0.5); /* Frosty glow */
+}
+
+header p {
+    font-size: 1.1em;
+    color: var(--color-text-dark);
+    max-width: 600px;
+    margin: 0.5rem auto 0 auto;
+}
+
+/* --- Section Styling --- */
+section {
+    background-color: var(--color-background-light); /* From Frostfire theme */
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-border-accent); /* From Frostfire theme */
+}
+
+section h2 {
+    font-family: 'Orbitron', sans-serif; /* From Frostfire theme */
+    font-size: 2.2em;
+    color: var(--color-fire-medium); /* Fiery accent for section titles */
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-border-accent); /* From Frostfire theme */
+    padding-bottom: 0.8rem;
+    text-shadow: 0 0 0.8rem rgba(255, 140, 0, 0.4); /* Fiery glow */
+}
+
+/* --- Card Styling (Racer and Car) --- */
+.racer-card, .car-card {
+    display: inline-block;
+    width: 300px; /* Base width */
+    padding: 1.5rem;
+    background-color: var(--color-background-dark); /* Darker background for cards */
+    border-radius: 0.75rem;
+    margin: 1rem; /* Spacing between cards */
+    vertical-align: top; /* Align cards to the top if they have different heights */
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--color-border-accent); /* From Frostfire theme */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+}
+
+.racer-card:hover, .car-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.6); /* Enhanced shadow on hover */
+    border-color: var(--color-frost-medium); /* Highlight border on hover */
+}
+
+.racer-card h3, .car-card h3 {
+    font-family: 'Chakra Petch', sans-serif; /* From Frostfire theme */
+    font-size: 1.5em;
+    color: var(--color-frost-light); /* Frosty color for names */
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.racer-card p, .car-card p {
+    font-size: 0.95em;
+    color: var(--color-text-dark);
+}
+
+/* --- Events Section --- */
+#events ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#events li {
+    background-color: var(--color-background-dark); /* Darker background for list items */
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.8rem;
+    text-align: left;
+    border: 1px solid var(--color-border-accent); /* From Frostfire theme */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#events li:hover {
+    background-color: rgba(126, 217, 232, 0.1); /* Subtle frosty hover background */
+    border-color: var(--color-frost-medium);
+}
+
+#events li strong {
+    color: var(--color-fire-light); /* Fiery color for highlights */
+    font-size: 1.1em;
+}
+
+/* --- Timeline Section --- */
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* For the timeline line */
+    padding-top: 1rem;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px; /* Timeline vertical line */
+    background-color: var(--color-fire-medium); /* Fiery timeline line */
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.timeline-event {
+    width: 400px; /* Base width */
+    padding: 1.5rem;
+    background-color: var(--color-background-dark); /* Darker background for timeline events */
+    border-radius: 0.75rem;
+    margin: 1.5rem 0; /* Vertical spacing */
+    position: relative;
+    z-index: 1; /* Ensure events are above the line */
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--color-border-accent); /* From Frostfire theme */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.6);
+    border-color: var(--color-fire-light); /* Highlight border on hover */
+}
+
+.timeline-event:nth-child(odd) {
+    /* Alternate left/right for a more dynamic timeline */
+    align-self: flex-start;
+    margin-right: calc(50% + 20px); /* Push to left of line */
+    text-align: right;
+}
+
+.timeline-event:nth-child(even) {
+    align-self: flex-end;
+    margin-left: calc(50% + 20px); /* Push to right of line */
+    text-align: left;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: var(--color-fire-medium); /* Fiery circle on timeline */
+    border: 3px solid var(--color-background-light); /* Border from Frostfire theme */
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.timeline-event:nth-child(odd)::before {
+    right: -28px; /* Position circle on the right for odd events */
+}
+
+.timeline-event:nth-child(even)::before {
+    left: -28px; /* Position circle on the left for even events */
+}
+
+.timeline-event h3 {
+    font-family: 'Orbitron', sans-serif; /* From Frostfire theme */
+    font-size: 1.3em;
+    color: var(--color-frost-light); /* Frosty color for timeline event titles */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    border-bottom: none; /* Remove border from timeline event h3 */
+    padding-bottom: 0;
+}
+
+.timeline-event p {
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-background-light); /* From Frostfire theme */
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-top: 3rem;
+    color: var(--color-text-dark);
+    font-size: 0.9em;
+    border: 1px solid var(--color-border-accent); /* From Frostfire theme */
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    .racer-card, .car-card {
+        width: 100%; /* Stack cards on smaller screens */
+        margin: 1rem 0;
+    }
+
+    .timeline-container::before {
+        left: 20px; /* Move timeline line to the left */
+        transform: translateX(0);
+    }
+
+    .timeline-event {
+        width: calc(100% - 40px); /* Adjust width to fit with new line position */
+        margin: 1rem 0 1rem 40px; /* Adjust margin to align with new line */
+        text-align: left !important; /* Force left alignment for all events */
+    }
+
+    .timeline-event:nth-child(odd),
+    .timeline-event:nth-child(even) {
+        align-self: flex-start; /* All events align to the left */
+        margin-right: 0;
+        margin-left: 40px; /* Space for the line and circle */
+    }
+
+    .timeline-event::before {
+        left: -10px; /* Position circle on the line */
+        right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    .racer-card, .car-card, .timeline-event {
+        padding: 1rem;
+    }
+
+    .timeline-event h3 {
+        font-size: 1.1em;
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.school-campaign-logo,
+.school-pic-logo {
+    width: 5rem;
+    height: auto;
+    max-width: 100%;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.frostfire-logo {
+    width: 12.5rem;
+    height: auto;
+    max-width: 100%;
+}
+
+.tab-navigation {
+    display: flex;
+    flex-wrap: wrap; /* Allows tabs to wrap on smaller screens */
+    justify-content: center;
+    background-color: var(--color-background-light); /* Dark background */
+    border-radius: 0.75rem; /* Slightly rounded corners */
+    margin: 1.5rem auto 2.5rem auto; /* Center and add spacing */
+    padding: 0.5rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-border-accent); /* Subtle border */
+    max-width: 900px; /* Constrain width for better layout */
+    position: relative; /* For potential pseudo-elements or subtle effects */
+    overflow: hidden; /* Ensures any inner glows don't bleed out */
+}
+
+.tab-button {
+    background-color: transparent; /* Default transparent */
+    color: var(--color-text-light);
+    border: none;
+    padding: 0.8rem 1.2rem;
+    margin: 0.25rem; /* Small margin between buttons */
+    border-radius: 0.5rem; /* Rounded corners for buttons */
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif; /* Sci-fi font for buttons */
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    flex-grow: 1; /* Allow buttons to grow and fill space */
+    min-width: 120px; /* Minimum width for buttons */
+    position: relative;
+    overflow: hidden; /* For inner glow effects */
+    z-index: 1; /* Ensure buttons are above any background effects */
+}
+
+/* Pseudo-element for a subtle background glow/fill on hover */
+.tab-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--color-frost-dark), var(--color-fire-medium));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1; /* Behind the button text */
+    border-radius: 0.5rem;
+}
+
+.tab-button:hover::before {
+    opacity: 0.15; /* Subtle glow on hover */
+}
+
+.tab-button:hover {
+    color: var(--color-frost-light); /* Lighter text on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.tab-button.active {
+    background-color: var(--color-fire-medium); /* Active tab color */
+    color: white;
+    box-shadow: 0 0 0.8rem rgba(255, 140, 0, 0.5), /* Fiery glow for active tab */
+                inset 0 0 0.5rem rgba(255, 255, 255, 0.3); /* Inner white glow */
+    font-weight: bold;
+    transform: translateY(0); /* Reset lift for active */
+    border: 1px solid var(--color-frost-light); /* Stronger border for active */
+    z-index: 2; /* Ensure active tab stands out */
+}
+
+.tab-button.active::before {
+    opacity: 0.3; /* More pronounced glow for active tab */
+}
+
+/* Responsive adjustments for tab navigation */
+@media (max-width: 768px) {
+    .tab-navigation {
+        flex-direction: column; /* Stack buttons vertically */
+        padding: 0.25rem;
+    }
+
+    .tab-button {
+        margin: 0.2rem 0; /* Adjust vertical margin */
+        min-width: unset; /* Remove min-width to allow full width */
+    }
+}

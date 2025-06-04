@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frostfire Labs</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="builder-container">
+        <header>
+            <div class="logo-container">
+            <img src="school-campaign.png" alt="School Campaign" class="school-campaign-logo">
+            <img src="frostfire-dragon-logo.jpeg" alt="Frostfire Dragons Logo" class="frostfire-logo">
+            <img src="school-pic.jpg" alt="Your School" class="school-pic-logo">
+            </div>
+            <h1><span class="frost">Frostfire </span><span class="fire">Labs</span></h1>
+            <p class="small-more"><a href="index.html"><u>Back to Homepage</u></a></p>
+            <p class="intro">Welcome to Frostfire Labs! Build your own F1 car for a greener future. Choose parts and see how they affect the car's environmental score and cost.</p>
+        </header>
+
+        <section id="fuel-selection" class="choice-panel">
+            <h2>Engine Type</h2>
+            <p class="section-info">The type of engine your car runs on. Different engines offer different performance and eco-friendliness.</p>
+            <div class="option">
+                <input type="radio" name="fuel" value="hydrogen-fuel-cell" id="hydrogen-fuel-cell">
+                <label for="hydrogen-fuel-cell">Hydrogen <span class="info">(No direct pollution, but complex to make)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="fuel" value="advanced-electric" id="advanced-electric">
+                <label for="advanced-electric">Electric <span class="info">(No direct pollution, very efficient)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="fuel" value="sustainable-biofuel" id="sustainable-biofuel">
+                <label for="sustainable-biofuel">Bio-Fuel <span class="info">(Less carbon impact, high power)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="fuel" value="hybrid-v6-turbo" id="hybrid-v6-turbo">
+                <label for="hybrid-v6-turbo">Current F1 Hybrid <span class="info">(Standard F1 engine, uses some eco-tech)</span></label>
+                <div id="emission-display" class="emission-warning" style="display:none;"></div>
+            </div>
+            <p class="learn-more"><a href="fuel-technologies.html">Learn about F1 fuels</a></p>
+        </section>
+
+        <section id="material-selection" class="choice-panel">
+            <h2>Car Body Material</h2>
+            <p class="section-info">The chassis of the car. Affects weight, strength, and environmental impact.</p>
+            <div class="option">
+                <input type="radio" name="material" value="recycled-aluminum" id="recycled-aluminum">
+                <label for="recycled-aluminum">Recycled Aluminum <span class="info">(Good performance, uses less new energy)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="material" value="sustainable-composite" id="material-sustainable-composite">
+                <label for="material-sustainable-composite">Eco-Friendly Composite <span class="info">(Strong, lighter footprint)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="material" value="traditional-carbon-fiber" id="material-traditional-carbon-fiber">
+                <label for="material-traditional-carbon-fiber">Standard Carbon Fiber <span class="info">(Top performance, but more energy to make)</span></label>
+            </div>
+            <p class="learn-more"><a href="sustainable-materials.html">Explore eco-materials in racing</a></p>
+        </section>
+
+        <section id="aero-selection" class="choice-panel">
+            <h2>Aerodynamics</h2>
+            <p class="section-info">How the car cuts through the air for speed and grip.</p>
+            <div class="option">
+                <input type="radio" name="aero" value="high-efficiency" id="aero-high-efficiency">
+                <label for="aero-high-efficiency">High Speed <span class="info">(Less air resistance, best for straight lines)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="aero" value="balanced" id="aero-balanced">
+                <label for="aero-balanced">Balanced <span class="info">(Mix of speed and cornering grip)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="aero" value="high-downforce" id="aero-high-downforce">
+                <label for="aero-high-downforce">High Grip <span class="info">(Big wings for better cornering)</span></label>
+            </div>
+        </section>
+
+        <section id="tire-selection" class="choice-panel">
+            <h2>Tire Type</h2>
+            <p class="section-info">Affects grip and how long tires last, plus their environmental impact.</p>
+            <div class="option">
+                <input type="radio" name="tire" value="eco-compound" id="tire-eco-compound">
+                <label for="tire-eco-compound">Eco Tires <span class="info">(Last longer, less waste, better rolling efficiency)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="tire" value="performance-compound" id="tire-performance-compound">
+                <label for="tire-performance-compound">Race Tires <span class="info">(Best grip, but wear out faster)</span></label>
+            </div>
+        </section>
+
+        <section id="halo-selection" class="choice-panel">
+            <h2>Halo Color</h2>
+            <p class="section-info">A key safety part, choose its color!</p>
+            <div class="option">
+                <input type="radio" name="halo-color" value="black" id="halo-black">
+                <label for="halo-black">Black</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="halo-color" value="white" id="halo-white">
+                <label for="halo-white">White</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="halo-color" value="red" id="halo-red">
+                <label for="halo-red">Red</label>
+            </div>
+        </section>
+
+        <section id="rim-selection" class="choice-panel">
+            <h2>Wheel Color</h2>
+            <p class="section-info">Style your car's wheels.</p>
+            <div class="option">
+                <input type="radio" name="rim-color" value="grey" id="rim-grey">
+                <label for="rim-grey">Standard Grey</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="rim-color" value="gold" id="rim-gold">
+                <label for="rim-gold">Gold</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="rim-color" value="blue" id="rim-blue">
+                <label for="rim-blue">Blue</label>
+            </div>
+        </section>
+
+        <section id="sidepod-selection" class="choice-panel">
+            <h2>Sidepod Style</h2>
+            <p class="section-info">Small changes to the car's sides for cooling and air flow.</p>
+            <div class="option">
+                <input type="radio" name="sidepod-style" value="standard" id="sidepod-standard">
+                <label for="sidepod-standard">Standard</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="sidepod-style" value="slim" id="sidepod-slim">
+                <label for="sidepod-slim">Slim</label>
+            </div>
+        </section>
+
+        <section id="rear-wing-selection" class="choice-panel">
+            <h2>Rear Wing Type</h2>
+            <p class="section-info">Important for grip and how your car looks.</p>
+            <div class="option">
+                <input type="radio" name="rear-wing" value="standard-wing" id="rear-wing-standard">
+                <label for="rear-wing-standard">Standard Wing</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="rear-wing" value="low-drag-wing" id="rear-wing-low-drag">
+                <label for="rear-wing-low-drag">Low Drag Wing</label>
+            </div>
+        </section>
+
+        <section id="paint-selection" class="choice-panel">
+            <h2>Car Paint</h2>
+            <p class="section-info">Even paint has an eco-impact, and makes your car look great!</p>
+            <div class="option">
+                <input type="radio" name="paint" value="eco-friendly-water-based" id="eco-paint-water-based">
+                <label for="eco-paint-water-based">Eco-Friendly Paint <span class="info">(Less harmful chemicals)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="paint" value="lightweight-durable" id="lightweight-durable-paint">
+                <label for="lightweight-durable-paint">Light & Strong Paint <span class="info">(Adds less weight, helps efficiency)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="paint" value="standard-automotive" id="standard-automotive-paint">
+                <label for="standard-automotive-paint">Standard Paint <span class="info">(Typical car paint, more chemicals)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="paint" value="custom-red" id="custom-red">
+                <label for="custom-red">Custom Red</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="paint" value="custom-blue" id="custom-blue">
+                <label for="custom-blue">Custom Blue</label>
+            </div>
+            <div class="option">
+                <input type="radio" name="paint" value="custom-green" id="custom-green">
+                <label for="custom-green">Custom Green</label>
+            </div>
+        </section>
+
+        <section id="driver-selection" class="choice-panel">
+            <h2>Choose Your Driver</h2>
+            <p class="section-info">Pick a driver for your car. Each has different skills!</p>
+            <div class="option">
+                <input type="radio" name="driver" value="advaith" id="driver-advaith">
+                <label for="driver-advaith">Advaith <span class="info">(Good in corners, steady)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="driver" value="faizan" id="driver-faizan">
+                <label for="driver-faizan">Faizan <span class="info">(Fast on straights, but wears out tires)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="driver" value="keshav" id="driver-keshav">
+                <label for="driver-keshav">Keshav <span class="info">(Manages tires well, but slower on straights)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="driver" value="prashodh" id="driver-prashodh">
+                <label for="driver-prashodh">Prashodh <span class="info">(All-rounder, decent tire care, good everywhere)</span></label>
+            </div>
+        </section>
+
+        <section id="track-selection" class="choice-panel">
+            <h2>Choose Your Race Track</h2>
+            <p class="section-info">Pick a track to test your car. Different tracks suit different car setups and drivers!</p>
+            <div class="option">
+                <input type="radio" name="track" value="classic-circuit" id="track-classic-circuit">
+                <label for="track-classic-circuit">Classic Track <span class="info">(Mix of straights and turns, average tire wear)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="track" value="high-speed-oval" id="track-high-speed-oval">
+                <label for="track-high-speed-oval">Fast Oval <span class="info">(Mostly straight, light on tires)</span></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="track" value="technical-street" id="track-technical-street">
+                <label for="track-technical-street">City Track <span class="info">(Lots of tight turns, short straights, hard on tires)</span></label>
+            </div>
+        </section>
+
+
+        <section id="build-display" class="results-panel">
+            <h2>Your Custom F1 Car</h2>
+            <div id="car-visualization" class="car-preview">
+                <svg id="f1-car-svg" viewBox="0 0 600 250">
+                    <path id="svg-floor" d="M100,145 L150,140 L450,140 L500,145 L500,155 L450,160 L150,160 L100,155 Z" fill="#222" />
+
+                    <path id="svg-body-main" d="M110,120 Q120,100 200,100 L450,100 Q480,100 490,120 L490,140 Q480,160 450,160 L200,160 Q120,160 110,140 Z" fill="#ddd" />
+
+                    <path id="svg-nose" d="M80,120 Q90,110 120,110 L140,110 Q150,115 140,130 L120,130 Q90,135 80,120 Z" fill="#ddd" />
+
+                    <path id="svg-cockpit" d="M230,100 Q240,90 280,90 H340 Q380,90 390,100 Z" fill="#333" />
+                    <rect x="270" y="90" width="80" height="15" fill="#333" /> <path id="svg-halo" d="M280,85 C270,75 260,70 250,70 L240,70 C230,70 220,75 210,85 L210,105 C220,115 230,120 240,120 L250,120 C260,120 270,115 280,105 Z" fill="#333" stroke="#000" stroke-width="2" />
+
+                    <path id="svg-front-wing" d="M40,120 Q50,110 80,110 L100,110 Q110,115 100,130 L80,130 Q50,135 40,120 Z M50,115 L90,115 L90,125 L50,125 Z" fill="#ccc" stroke="#000" stroke-width="1" />
+                    <path id="svg-front-wing-endplate" d="M40,115 L40,125 L30,130 L30,120 Z" fill="#555" />
+
+                    <rect id="svg-rear-wing-main" x="500" y="90" width="70" height="20" rx="3" ry="3" fill="#ccc" stroke="#000" stroke-width="1" />
+                    <rect id="svg-rear-wing-flap" x="510" y="100" width="50" height="10" rx="2" ry="2" fill="#aaa" />
+                    <rect id="svg-rear-wing-support" x="525" y="110" width="20" height="15" fill="#555" />
+                    <path id="svg-rear-wing-endplate-left" d="M500,90 L500,110 L490,115 L490,95 Z" fill="#555" />
+                    <path id="svg-rear-wing-endplate-right" d="M570,90 L570,110 L580,115 L580,95 Z" fill="#555" />
+
+
+                    <path id="svg-sidepod-left" d="M300,100 L320,100 C330,100 335,110 335,120 L335,140 C335,150 330,160 320,160 L300,160 L300,100 Z" fill="#555" />
+                    <path id="svg-sidepod-right" d="M300,100 L320,100 C330,100 335,110 335,120 L335,140 C335,150 330,160 320,160 L300,160 L300,100 Z" fill="#555" style="display:none;"/>
+
+
+                    <circle class="car-wheel" id="svg-wheel-fl" cx="120" cy="175" r="25" fill="#333" />
+                    <circle class="car-wheel" id="svg-wheel-rl" cx="440" cy="175" r="25" fill="#333" />
+                    <circle class="car-rim" cx="120" cy="175" r="15" fill="#aaa" />
+                    <circle class="car-rim" cx="440" cy="175" r="15" fill="#aaa" />
+                    <line x1="100" y1="175" x2="140" y2="175" stroke="#222" stroke-width="2" />
+                    <line x1="420" y1="175" x2="460" y2="175" stroke="#222" stroke-width="2" />
+
+
+                    <text id="fuel-indicator" x="30" y="20" font-size="12" fill="#000">Engine: Not Picked</text>
+                    <text id="material-indicator" x="30" y="35" font-size="12" fill="#000">Body: Not Picked</text>
+                    <text id="aero-indicator" x="30" y="50" font-size="12" fill="#000">Aero: Not Picked</text>
+                    <text id="tire-indicator" x="180" y="20" font-size="12" fill="#000">Tires: Not Picked</text>
+                    <text id="halo-indicator" x="180" y="35" font-size="12" fill="#000">Halo: Not Picked</text>
+                    <text id="rim-indicator" x="180" y="50" font-size="12" fill="#000">Wheels: Not Picked</text>
+                    <text id="sidepod-indicator" x="330" y="20" font-size="12" fill="#000">Sidepods: Not Picked</text>
+                    <text id="rear-wing-indicator" x="330" y="35" font-size="12" fill="#000">Rear Wing: Not Picked</text>
+                    <text id="paint-indicator" x="330" y="50" font-size="12" fill="#000">Paint: Not Picked</text>
+                    <text id="driver-indicator" x="480" y="20" font-size="12" fill="#000">Driver: Not Picked</text>
+                </svg>
+            </div>
+            <div id="eco-score" class="score-display">
+                Eco-Score: <span id="score-value">0</span> / 10
+            </div>
+            <div id="car-cost" class="cost-display">
+                Cost: $0
+            </div>
+            <p class="assumptions">**Note:** Scores and costs are simple guesses for this game. Real F1 cars are much more complex.</p>
+        </section>
+
+        <div class="action-area">
+            <button id="build-button" class="build-button">Build Your Car</button>
+        </div>
+
+        <section id="race-section" class="choice-panel">
+            <h2>Race Your Car</h2>
+            <p class="section-info">See how your custom car races against a standard F1 car!</p>
+            <button id="start-race-button" class="build-button">Start Race</button>
+            <div id="race-display" class="race-preview">
+                <svg id="race-track-svg" viewBox="0 0 800 300">
+                    <path id="track-path" fill="none" stroke="#606060" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"
+                        d="M100,50 H700 C750,50 750,100 700,100 L500,100 Q450,100 450,150 V250 Q450,280 420,280 H100 Q50,280 50,230 V70 Q50,50 100,50 Z" />
+                    <path id="track-inner-border" fill="none" stroke="#404040" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"
+                        d="M100,50 H700 C750,50 750,100 700,100 L500,100 Q450,100 450,150 V250 Q450,280 420,280 H100 Q50,280 50,230 V70 Q50,50 100,50 Z" />
+
+                    <line x1="100" y1="30" x2="100" y2="70" stroke="white" stroke-width="2" />
+                    <text x="105" y="45" fill="white" font-size="12">START</text>
+
+                    <circle id="our-car-avatar" cx="0" cy="0" r="8" fill="blue" stroke="white" stroke-width="1.5" />
+                    <circle id="std-car-avatar" cx="0" cy="0" r="8" fill="red" stroke="white" stroke-width="1.5" />
+                </svg>
+            </div>
+            <div id="race-results" class="results-display">
+                <p>Race Results:</p>
+                <p id="our-car-time">Your Car Time: --:--.--</p>
+                <p id="std-car-time">Standard Car Time: --:--.--</p>
+                <p id="race-winner">Winner: --</p>
+                <p id="time-difference">Difference: --</p>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>About This Project</h2>
+            <p>Welcome to our Eco-F1 Lab! We are the <strong class="frost">Frostfire Dragons</strong>. We love F1 and also care about a green future. Our project for the Yasin Schools competition shows how fast racing and being eco-friendly can go together.</p>
+
+            <h3>Fast Cars, Green Planet</h3>
+            <p>We believe that caring for the Earth can make cars even better. This tool lets you explore choices F1 teams make to build a car that's super fast and good for the environment.</p>
+
+            <h3>How to Use It</h3>
+            <p>This "Eco-F1 Builder" lets you pick different parts for an F1 car. Each part changes:</p>
+            <ul>
+                <li><strong>Speed:</strong> How fast the car can go.</li>
+                <li><strong>Cost:</strong> How much the part costs.</li>
+                <li><strong>Eco-Score:</strong> How good it is for the environment (e.g., how much pollution it makes, if it can be recycled).</li>
+            </ul>
+            <p>After you pick your parts, the system calculates your car's total Eco-Score and cost. Then, you can race your car against a "standard" F1 car to see how your eco-friendly choices perform!</p>
+
+            <h3>Why It Matters</h3>
+            <p>Formula 1 is huge worldwide. By showing new green tech in racing, we can inspire car makers everywhere and teach people about eco-friendly design. Our project shows how racing can help create a better, greener future, one lap at a time.</p>
+
+            </section>
+
+        <footer>
+            <p>&copy; 2025 Frostfire Labs - Building Green Race Cars</p>
+            <p>Info and scores are for learning only. This tool is a simple example.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

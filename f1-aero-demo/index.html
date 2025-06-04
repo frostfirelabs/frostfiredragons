@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- 【Character encoding】 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 【Responsiveness】 -->
+  <title>FrostFire Labs by FrostFire Dragons</title> <!-- 【Lab Title】 -->
+  
+  <!-- 【Link to your themed CSS file】 -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- 【Include Chart.js from CDN for the bar graph】 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- 【HEADER SECTION】 -->
+  <header>
+ <div class="logo-container">
+    <img src="school-campaign.png" alt="School Campaign" class="school-campaign-logo" style="width: 3.125rem;">
+    <img src="frostfire-dragon-logo.jpeg" alt="Frostfire Dragons Logo" class="frostfire-logo" style="width: 7.5rem;">
+    <img src="school-pic.jpg" alt="Your School" class="school-pic-logo" style="width: 3.125rem;">
+</div>
+
+<h1>
+    <span class="frost">Frostfire </span><span class="fire">Labs</span>
+</h1>
+
+<p class="small-more">
+    <a href="D:\projects\build-ur-own-car\index.html"><u>Click here to go back to the homepage</u></a>
+</p>
+
+<p class="intro">
+    Welcome to Frostfire Labs! Dive into the engineering challenges of sustainable racing. Design your ultimate Formula 1 car by making choices across critical components and see the impact on its environmental footprint and cost.
+</p>
+
+  <!-- 【INPUTS SECTION: Select speed preset and aerodynamic customizations】 -->
+  <section class="input-section">
+    <!-- 【Speed Selection via fieldset and radio buttons】 -->
+    <fieldset>
+      <legend>Speed Selection</legend>
+      <label>
+        <input type="radio" name="speedSelect" value="low" onclick="setSpeedPreset('low')" checked> (Low)
+      </label>
+      <label>
+        <input type="radio" name="speedSelect" value="medium" onclick="setSpeedPreset('medium')"> (Medium)
+      </label>
+      <label>
+        <input type="radio" name="speedSelect" value="high" onclick="setSpeedPreset('high')"> (High)
+      </label>
+      <label>
+        <input type="radio" name="speedSelect" value="custom" onclick="setSpeedPreset('custom')"> (Custom)
+      </label>
+      <!-- 【Custom speed input displayed only when Custom is selected】 -->
+      <input type="number" id="customSpeed" placeholder="Enter custom speed (m/s)" style="display:none;">
+    </fieldset>
+    
+    <!-- 【Aerodynamic Customization Options】 -->
+    <label for="wingAngle">Front Wing Angle (°):</label>
+    <input type="number" id="wingAngle" value="15">
+    
+    <label for="rearWingAngle">Rear Wing Angle (°):</label>
+    <input type="number" id="rearWingAngle" value="10">
+    
+    <label>
+      <input type="checkbox" id="sidepodIntake"> Enhanced Sidepod Intake
+    </label>
+    
+    <!-- 【Action Buttons】 -->
+    <button onclick="calculateAero()">Calculate</button>
+    <button onclick="resetSimulation()">Reset</button>
+    <button onclick="toggleWindTunnel()">Toggle Wind Tunnel Mode</button>
+  </section>
+  
+  <!-- 【RESULTS SECTION: Display numerical values for Downforce and Drag】 -->
+  <section class="results-section">
+    <h2>Results</h2>
+    <p id="downforce">Downforce: -</p> <!-- 【Shows calculated downforce】 -->
+    <p id="drag">Drag: -</p>         <!-- 【Shows calculated drag】 -->
+  </section>
+  
+  <!-- 【WARNING BOX: Displays red warning messages if values exceed safe thresholds】 -->
+  <section id="warning-box" class="warning-box hidden">
+    <h3>⚠ WARNING ⚠</h3>
+    <p id="warning-message"></p>
+  </section>
+  
+  <!-- 【SIMULATION SECTION: Enlarged SVG for F1 car animation, wind flows, and turbulence】 -->
+ <section class="simulation-section" id="simulationSection">
+  <h2>Simulation</h2>
+  <svg id="simulationSVG" viewBox="0 0 1000 600" preserveAspectRatio="xMinYMin meet">
+    <image href="f1-car.svg" x="0" y="0" width="1000" height="600" />
+    
+    <g id="windEffect">
+      <path class="wind-path" d="M 0 300 Q 500 250, 900 280 T 1000 300" fill="none" />
+      <path class="wind-path" d="M 0 350 Q 500 300, 900 320 T 1000 350" fill="none" />
+      <path class="wind-path" d="M 0 400 Q 500 350, 900 370 T 1000 400" fill="none" />
+    </g>
+    
+    <line id="dragEffect" x1="850" y1="250" x2="950" y2="250" class="drag-line" />
+    
+    <g id="turbulenceEffect" style="display:none;">
+      <circle cx="600" cy="300" r="15" fill="rgba(255, 0, 0, 0.6)">
+        <animateTransform attributeName="transform" type="rotate" from="0 600 300" to="360 600 300" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="630" cy="320" r="10" fill="rgba(255, 0, 0, 0.6)">
+        <animateTransform attributeName="transform" type="rotate" from="360 630 320" to="0 630 320" dur="2s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  </svg>
+</section>
+  
+  <!-- 【OBSERVATION PANEL: Record your observations and compare downforce values】 -->
+  <section class="observation-panel">
+    <h2>Observation Panel</h2>
+    <!-- 【Text area for users to type their observations】 -->
+    <textarea id="observationText" placeholder="Enter your observations here..." rows="4" cols="50"></textarea>
+    <br>
+    <button onclick="recordObservation()">Record Observation</button>
+    <!-- 【Bar Graph: Displays two bars comparing Standard vs. Custom Downforce】 -->
+    <canvas id="observationChart" width="800" height="200"></canvas>
+    <!-- 【Observation List: A new list element to show each recorded observation】 -->
+    <h3>Recorded Observations</h3>
+    <ul id="observationsList"></ul>
+  </section>
+  
+  <!-- 【LAB INFO SECTION: Expanded info about optimization, ideal ranges, and tips】 -->
+  <section class="lab-info">
+    <h3>Lab Info</h3>
+    <p style="font-size:1.1em;">
+      In this simulation, <strong>Downforce</strong> is the force that presses the car onto the track (like pushing a car down), whereas <strong>Drag</strong> is the air resistance working against the car's forward motion.
+      Optimizing these forces is key to F1 performance:<br><br>
+      • Aim for a downforce range of approximately 2500–5000 N for a standard F1 setup. Too much downforce increases drag and wears tires faster.<br>
+      • Ideally, keep drag below 3000 N to ensure efficient acceleration and top speed. Adjust your wing angles to find the right balance.<br>
+      • The <strong>Enhanced Sidepod Intake</strong> can boost downforce (by up to 10%) while reducing drag slightly if used correctly.<br><br>
+      Experiment with different settings and observe how your custom setup compares with a standard F1 car. Use the observation panel to note any patterns or ideas to further optimize your design.
+    </p>
+  </section>
+  
+  <!-- 【Including the JavaScript file】 -->
+  <script src="script.js"></script>
+</body>
+</html>
